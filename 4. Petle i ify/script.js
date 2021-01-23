@@ -146,7 +146,7 @@ let piramidEnd = Math.floor(arrowRows / 2) + 1;
 for (let i = 0; i < arrowRows; i++) {
     if (i < piramidEnd) {
         for (let j = 0; j < piramidEnd - i; ++j) {
-                str += " ";
+            str += " ";
         }
         for (let k = 0; k < i + 1; ++k) {
             str += "* ";

@@ -35,7 +35,10 @@ let ex3 = function (elementId){
     let b = +element.dataset.numbertwo;
     let c = +element.dataset.numberThree;
 
-    console.log(a+b-c);
+    let d = a+b+c;
+    let e = a-b-c;
+
+    return [d, e];
 }
 ex3("datasetCheck");
 
@@ -53,25 +56,24 @@ let ex5 = function(){
 }
 ex5();
 
-let ex6 = function(id){
-    const list = document.getElementById(id);
-    list.classList.forEach(element => {
-        console.log(element);
-    });
+let ex6 = function(classes){
+    
     let string = "";
-    list.classList.forEach(element =>{
-        
+    classes.classList.forEach(element => {
+        console.log(element);
         string += element + "+"
     });
+    
     console.log(string.slice(0, -1));
-    list.className = "";
+    classes.className = "";
     console.log("Usunięto wszystkie klasy.");
-    console.log(list.classList);
+    console.log(classes.classList);
 }
-ex6("classes");
-
-let ex7 = function(id){
-    const list = document.querySelectorAll("#id, li");
+const classes = document.getElementById("classes");
+ex6(classes);
+const list = document.querySelectorAll("#id > li");
+let ex7 = function(list){
+    
     list.forEach((e) => {
         if(!e.hasAttribute("text")){
             e.dataset.text = "text";
@@ -81,7 +83,7 @@ let ex7 = function(id){
         console.log(e);
     });
 }
-ex7("longList");
+ex7(list);
 
 let ex8a = function(string){
     return {newClass : string};

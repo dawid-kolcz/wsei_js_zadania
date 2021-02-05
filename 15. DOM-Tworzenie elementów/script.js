@@ -1,53 +1,53 @@
-function ex1(){
+function ex1() {
     const newDiv = document.createElement("div");
     newDiv.innerText = "To jest nowy element";
     document.querySelector("#root").appendChild(newDiv);
 }
 
-function ex2(){
+function ex2() {
     const newUl = document.createElement("ul");
     document.body.appendChild(newUl);
-    
+
     let arr = ['nie', 'przepadam', 'za', 'owocami', 'jablko', 'zjem'];
 
-    for(let i = 0; i < arr.length; i++){
+    for (let i = 0; i < arr.length; i++) {
         let newLi = document.createElement("li");
         newUl.appendChild(newLi);
         newLi.innerText = arr[i];
     }
 }
 
-function ex3(){
+function ex3() {
     ex2();
     const ul = document.querySelector("ul");
     const list = document.querySelectorAll("ul li");
 
     document.addEventListener("DOMContentLoaded", (e) => {
-        for(let i = 0; i < list.length; i+=2){
+        for (let i = 0; i < list.length; i += 2) {
             ul.removeChild(list[i]);
         }
     });
     console.log(list);
 }
 
-function ex4(){
+function ex4() {
     const button = document.createElement("button");
     button.innerText = "Delete me";
 
     const div = document.querySelector("#root");
     div.appendChild(button);
 
-    button.addEventListener("click", (e) =>{
+    button.addEventListener("click", (e) => {
         div.removeChild(button);
     });
 }
 
-function ex5(){
-    let r = Math.floor(Math.random() * 10 ) + 1;
+function ex5() {
+    let r = Math.floor(Math.random() * 10) + 1;
 
     const root = document.querySelector("#root");
-    
-    for(let i = 0; i < r; i++){
+
+    for (let i = 0; i < r; i++) {
         let div = document.createElement("div");
         div.innerText = `to jest div numer ${i}`;
 
@@ -55,14 +55,14 @@ function ex5(){
     }
 }
 
-function ex6(){
-    let obj = { 
-        div1: 'to jest div', 
-        span1: 'to jest span', 
-        div2: { 
-            div3: 'to jest div', 
-        }, 
-        span2: 'to jest span', 
+function ex6() {
+    let obj = {
+        div1: 'to jest div',
+        span1: 'to jest span',
+        div2: {
+            div3: 'to jest div',
+        },
+        span2: 'to jest span',
     }
     const root = document.querySelector("#root");
 
@@ -85,15 +85,15 @@ function ex6(){
     root.appendChild(span2);
 }
 
-function ex7(){
+function ex7() {
     const root = document.querySelector("#root");
 
     const ul1div = document.createElement("div");
-    
+
     const ul1 = document.createElement("ul");
 
     let items = ["owoce", "rozne", "bananowce", "i", "nie", "tylko"];
-    for (let i = 0; i < items.length; i++){
+    for (let i = 0; i < items.length; i++) {
         const li = document.createElement("li");
         li.innerText = `${items[i]}`;
         ul1.appendChild(li);
@@ -106,12 +106,12 @@ function ex7(){
         ul2.appendChild(ul1.lastElementChild);
         button2.disabled = false;
 
-        if(ul1.innerHTML == "") button1.disabled = true;
+        if (ul1.innerHTML == "") button1.disabled = true;
     });
-    
+
     // other list
     const ul2div = document.createElement("div");
-    
+
     const ul2 = document.createElement("ul");
     ul2div.appendChild(ul2);
     const button2 = document.createElement("button");
@@ -121,19 +121,19 @@ function ex7(){
         ul1.appendChild(ul2.lastElementChild);
         button1.disabled = false
 
-        if(ul2.innerHTML == "") button2.disabled = true;
+        if (ul2.innerHTML == "") button2.disabled = true;
     });
 
-    ul1div.appendChild(button1);    
+    ul1div.appendChild(button1);
     root.appendChild(ul1div);
 
-    ul2div.appendChild(button2);    
+    ul2div.appendChild(button2);
     root.appendChild(ul2div);
 }
 
-function ex8(){
-    function create(w, t, c, n){
-        for(let i = 0; i < n; i++){
+function ex8() {
+    function create(w, t, c, n) {
+        for (let i = 0; i < n; i++) {
             let item = document.createElement(w);
             item.innerText = t;
             item.style.color = c;
@@ -147,14 +147,14 @@ function ex8(){
     form.appendChild(what);
     const text = document.createElement("input");
     form.appendChild(text);
-    const color = document.createElement("input");   
+    const color = document.createElement("input");
     form.appendChild(color);
-    const times = document.createElement("input");   
+    const times = document.createElement("input");
     form.appendChild(times);
 
     const button = document.createElement("button");
     button.innerText = "Stworz element";
-    button.addEventListener("click", (e) =>{
+    button.addEventListener("click", (e) => {
         create(what.value, text.value, color.value, times.value);
     });
     document.body.appendChild(button);
@@ -163,7 +163,7 @@ function ex8(){
 
 }
 
-function ex9(){
+function ex9() {
     const form = document.createElement("form");
 
     const name = document.createElement("input");
@@ -176,7 +176,7 @@ function ex9(){
     kids.name = "kids";
 
     const br = document.createElement("br");
-    
+
     const nl = document.createElement("label")
     nl.innerText = "Imie";
     const sl = document.createElement("label")
@@ -197,7 +197,7 @@ function ex9(){
 
     const more = document.createElement("button");
     more.innerText = "Wiecej";
-    more.addEventListener("click", (e) =>{
+    more.addEventListener("click", (e) => {
         const n = document.createElement("input");
         n.name = "name";
         const s = document.createElement("input");
@@ -232,7 +232,7 @@ function ex9(){
 
     const create = document.createElement("button");
     create.innerText = "Utworz";
-    create.addEventListener("click", (e) =>{
+    create.addEventListener("click", (e) => {
         const table = document.createElement("table");
 
         let tr = table.insertRow();
@@ -250,7 +250,7 @@ function ex9(){
         let iage = document.querySelectorAll('input[name="age"]');
         let ikids = document.querySelectorAll('input[name="kids"]');
 
-        for(let i = 0; i < iname.length; i++){
+        for (let i = 0; i < iname.length; i++) {
             let itr = table.insertRow();
             let ntd = itr.insertCell();
             ntd.innerText = iname[i].value;
@@ -263,7 +263,7 @@ function ex9(){
             let btd = itr.insertCell();
             let b = document.createElement("button");
             b.innerText = "Remove row";
-            b.addEventListener("click", (e) =>{
+            b.addEventListener("click", (e) => {
                 // Nie wie jak zrobic zeby sie kasowalo.
             });
             btd.appendChild(b);
@@ -276,22 +276,96 @@ function ex9(){
     document.body.appendChild(create);
 }
 
-function ex10(){
+function ex10() {
     // Nie wiem jak to zrobic.
 }
 
-function ex11(){
+function ex11() {
 
 }
 
-function ex12(){
+function ex12() {
+    function f(str) {
+        let obj = {}
+        obj.pole = str;
+        obj.checkForAla = function () {
+            if (this.pole.includes("Ala")) {
+                pole.replace("Ala", "Ola");
+            } else {
+                const div = document.createElement("div");
+                div.innerText = "Słowo Ala nie występuje w tekście.";
+                document.body.appendChild(div);
+            }
+        }
+        obj.checkForAla();
 
+    }
+    f("kot nie ma nic");
 }
 
-function ex13(){
-
+function ex13() {
+    function sumChar(arr) {
+        let retArr = [];
+        for (let i = 0; i < arr.length; i++) {
+            retArr[i] = arr[i].length;
+        }
+        return retArr;
+    }
+    function sumNumber(arr) {
+        let sum = 0;
+        for (i = 0; i < arr.length; i++) {
+            if (Number.isInteger(arr[i]))
+                sum += arr[i];
+        }
+        return sum;
+    }
+    function avg(arr) {
+        let sum = 0;
+        let count = 0;
+        for (i = 0; i < arr.length; i++) {
+            if (Number.isInteger(arr[i])) {
+                count++;
+                sum += arr[i];
+            }
+        }
+        return sum / count;
+    }
 }
 
-function ex14(){
+function ex14() {
+    let obj = {
+        name: "",
+        surnmame: "",
+        age: "",
+    };
+    function processObj(n, s, a) {
+        obj.name = n;
+        obj.surname = s;
+        obj.age = a;
 
+        obj.nameLength = n.length;
+        obj.surnameLength = s.length;
+        obj.age = a.length;
+
+        if (n.length > 5 || s.length > 5 || a.length > 5) {
+            const button = document.createElement("button");
+            button.innerText = "Restore";
+            button.addEventListener("click", (e) => {
+                obj.name = "";
+                obj.surname = "";
+                obj.age = "";
+
+                obj.nameLength = null;
+                obj.surnameLength = null;
+                obj.age = null;
+
+                console.log(obj);
+            });
+            document.body.appendChild(button);
+        }
+
+    }
+    
+    processObj("jest", "wiecej", "1");
 }
+ex14();
